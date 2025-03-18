@@ -87,5 +87,61 @@ public class SinglyLinkedList {
         }
     }
 
+    public boolean containsKey(int searchKey) {
+        
+        if (head == null) {return false;}
+        
+        Node current = head;
+        while (current != null) {
+            if (current.data == searchKey) {
+                return true;
+            }
+            current = current.next;
+        }
+
+        return false;
+    }
+
+    public void reverse() {
+        Node current = head;
+        Node next = null;
+        Node previous = null;
+        while (current != null) {
+            next = current.next;
+            current.next = previous;
+            previous = current;
+            current = next;
+        }
+
+        head = previous;
+    }
+
+    public int findNthNodeFromEnd(int position) {
+        
+        if (head == null || position <= 0) {
+            throw new IllegalArgumentException("Invalid position");
+        }
+        
+        // position is calculated from end from 1 index.
+        Node refPointer = head;
+        Node mainPointer = head;
+        
+        
+        // make the gap between 2 pointers equal to position
+        for (int i = 0; i < position; i++) {
+            if (refPointer == null) {
+                throw new IllegalArgumentException("Position is greater than the length of the list");
+            }
+            refPointer = refPointer.next;
+        }
+
+        // move 2 pointers toghether towards end of list.
+        while (refPointer != null) {
+            refPointer = refPointer.next;
+            mainPointer = mainPointer.next;
+        }
+        
+        return mainPointer.data;
+    }
 }
 
