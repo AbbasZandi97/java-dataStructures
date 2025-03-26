@@ -16,7 +16,7 @@ public class Search {
         int low = 0;
         int high = arr.length - 1;
         while (low <= high) {
-            int mid = (low + high)/2;
+            int mid = low + (high - low)/2;
             if (arr[mid] == key) return mid;
             if (key < arr[mid]) {
                 high = mid - 1;
@@ -25,6 +25,23 @@ public class Search {
             }
         }
         return -1;
+    }
+
+    public int searchInsert(int[] arr, int key) {
+        int low = 0;
+        int high = arr.length - 1;
+       
+        while (low <= high) {
+            int mid = (low + high)/2;
+            if (arr[mid] == key) return mid;
+            if (key < arr[mid]) {
+                high = mid - 1;
+            } else {
+                low = mid + 1;
+            }
+        }
+        
+        return low;
     }
 
 }
