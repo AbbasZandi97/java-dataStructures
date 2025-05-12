@@ -51,5 +51,12 @@ public class Array {
         }
     }
 
-    
+    public int[] resize(int[] array, int capacity) {
+        int[] temp = new int[capacity];
+        for (int i = 0; i < array.length; i++) {
+            temp[i] = array[i];
+        }
+
+        return temp;
+    }
 }
