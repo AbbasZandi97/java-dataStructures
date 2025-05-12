@@ -18,6 +18,17 @@ public class SinglyLinkedList {
         current.next = newNode;
     }
 
+    public void insertAtBeginning(int data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        } else {
+            newNode.next = head;
+            head = newNode;
+        }
+    }    
+
     public void print() {
         if (head == null) {
             System.out.println("Linked list is empty");
