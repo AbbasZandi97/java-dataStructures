@@ -29,6 +29,45 @@ public class SinglyLinkedList {
         }
     }    
 
+    public void insertAtPosition(int data, int pos) throws Exception {
+        Node newNode = new Node(data);
+        
+
+        if (head == null) {
+            if (pos == 1) {
+                head = newNode;
+            } else {
+                throw new Exception("List is empty. Invalid position.");
+            }
+
+        } else if (pos == 1) {
+           newNode.next = head;
+           head = newNode;
+            
+        } else {
+
+            int currentPosition = 1;
+            Node current = head;
+            
+
+            while (currentPosition < pos - 1 && current.next != null) {
+                
+                current = current.next;
+                currentPosition++;
+                
+            }
+
+            // program exited the previous while loop  too early since list boundry limitation
+            if (currentPosition != pos - 1) {
+                throw new Exception("Position out of boundary.");
+            }
+
+            newNode.next = current.next;
+            current.next = newNode;
+        }
+
+    }
+
     public void print() {
         if (head == null) {
             System.out.println("Linked list is empty");
