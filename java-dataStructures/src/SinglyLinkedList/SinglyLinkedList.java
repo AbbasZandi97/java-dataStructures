@@ -101,6 +101,12 @@ public class SinglyLinkedList {
             return;
         }
 
+        // single node case
+        if (head.next == null) {
+            head = null;
+            return;
+        }
+
         Node current = head;
         Node before = null;
         while (current.next != null) {
@@ -109,32 +115,6 @@ public class SinglyLinkedList {
         }
 
         before.next = null;
-    }
-
-    public void deleteAtPosition(int pos) {
-        int counter = 1;
-        Node current = head; 
-        Node previous = null;
-        if (head == null) {
-            System.out.println("List is empty. Nothing availabe to be deleted from the list.");
-        }
-        else if (pos == 1) {
-            head = head.next;
-        } else {
-            
-            while (counter < pos && current != null) {
-                previous = current;
-                current = current.next;
-                counter++;
-            }
-
-            if (current == null) {
-                System.out.println("Position " + pos + " is out of bounds.");
-                return;
-            }
-
-            previous.next = current.next;
-        }
     }
 
     public boolean containsKey(int searchKey) {
@@ -193,5 +173,38 @@ public class SinglyLinkedList {
         
         return mainPointer.data;
     }
+
+    public void deleteAtPosition(int pos) {
+        if (head == null) {
+            System.out.println("List is empty. nothing is available to delete.");
+            return;
+        }
+
+        // deleting the head case
+        if (pos == 1) {
+            head = head.next;
+            return;
+        }
+
+        Node current = head;
+        int currentPosition = 1;
+        Node before = null;
+        
+        while (current != null && currentPosition < pos) {
+            before = current;
+            current = current.next;
+            currentPosition++;
+        }
+
+        if (current != null) {
+            before.next = current.next;
+        } else {
+            System.out.println("Position is out of range.");
+            return;
+        }
+
+    
+    }
+    
 }
 

@@ -26,6 +26,8 @@ Contents ⭐️
 04:32:27 How to insert a node at the end of a Singly Linked List in Java-------------------------------
 04:47:42 Insert a node in a Singly Linked List at a given position-------------------------------
 05:16:40 Delete first node of a Singly Linked List-------------------------------
+05:29:35 Delete last node of a Singly Linked List-------------------------------
+05:48:00 Delete a node from a Singly Linked List at a given position-------------------------------
 06:12:06 search an element in a Singly Linked List-------------------------------
 06:22:42 Reverse a Singly Linked List-------------------------------
 06:33:27 find nth node from the end of a Singly Linked List-------------------------------
