@@ -144,6 +144,7 @@ public class SinglyLinkedList {
         }
 
         head = previous;
+        System.out.println("Linked list got reversed.");
     }
 
     public int findNthNodeFromEnd(int position) {
