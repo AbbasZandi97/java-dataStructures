@@ -207,5 +207,63 @@ public class SinglyLinkedList {
     
     }
     
+    
+    // this method works on sorted linked lists containing duplicates
+    public void removeDuplicates() {
+        if (head == null) {
+            System.out.println("empty linked list.");
+            return;
+        }
+        Node current = head;
+        while (current != null && current.next != null) {
+            if (current.data == current.next.data) {
+                current.next = current.next.next;
+            } else {
+                current = current.next;
+            }
+        }
+    }
+
+    // insert a node inside a sorted singly linked list
+    public void insertNodeInSortedLinkedList(Node newNode) {
+        if (head == null) {
+            System.out.println("Empty Linked List.");
+            return;
+        }
+
+        Node current = head;
+        Node temp = null;
+        while (current != null && current.data < newNode.data) {
+            temp = current;
+            current = current.next;
+        }
+
+        newNode.next = current;
+        temp.next = newNode;
+    }
+
+    public void removeKey(Node key) {
+        Node current = head;
+        Node temp = head;
+        
+        if (head == null) {
+            System.out.println("List has not been initialized... !!");
+            return;
+        }
+        
+        if (current != null && current.data == key.data) {
+            head = current.next;
+            return;
+        }
+
+        while (current != null && current.data != key.data) {
+            temp = current;
+            current = current.next;
+        }
+
+        if (current == null) return;
+        temp.next = current.next;
+    }
+
 }
 

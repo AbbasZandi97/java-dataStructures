@@ -31,9 +31,9 @@ Contents ⭐️
 06:12:06 search an element in a Singly Linked List-------------------------------
 06:22:42 Reverse a Singly Linked List-------------------------------
 06:33:27 find nth node from the end of a Singly Linked List-------------------------------
-06:46:43 remove duplicate from sorted Singy Linked List
-06:57:51 insert a node in a sorted Singly Linked List
-07:09:37 remove a given key from Singly Linked List
+06:46:43 remove duplicate from sorted Singy Linked List-------------------------------
+06:57:51 insert a node in a sorted Singly Linked List-------------------------------
+07:09:37 remove a given key from Singly Linked List-------------------------------
 07:20:10 detect a loop in a Singly Linked List
 07:36:58 find start of a loop in a Singly Linked List？
 07:57:54 Why Floyd's Cycle Detection algorithm works？
