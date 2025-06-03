@@ -201,7 +201,6 @@ public class SinglyLinkedList {
             before.next = current.next;
         } else {
             System.out.println("Position is out of range.");
-            return;
         }
 
     
@@ -264,6 +263,56 @@ public class SinglyLinkedList {
         if (current == null) return;
         temp.next = current.next;
     }
+
+    // this method just creates a chain of nodes to test
+    public Node createALoopInLinkedList() {
+        Node first = new Node(1);
+        Node second = new Node(2);
+        Node third = new Node(3);
+        Node fourth = new Node(4);
+        Node fifth = new Node(5);
+
+        first.next = second;
+        second.next = third;
+        third.next = fourth;
+        fourth.next = fifth;
+        fifth.next = second;
+
+        return first;
+    }
+
+    public Node doesContainLoop(Node firstNode) {
+        head = firstNode;
+        Node fastPtr = firstNode;
+        Node slowPtr = firstNode;
+
+        while (fastPtr != null && fastPtr.next != null) {
+            fastPtr = fastPtr.next.next;
+            slowPtr = slowPtr.next;
+            if (fastPtr == slowPtr) {
+                System.out.println("Linked List contains a loop");
+                return slowPtr;
+            }
+        }
+
+        return null;
+    }
+
+    /*
+    next method is used with doesContainLoop method.
+    the method parameter,node, is the node from previous method where slowPtr and fastPtr are equal(==).
+     */
+    public Node getStartingNode(Node node) {
+        Node temp = head;
+        while (temp != node) {
+            temp = temp.next;
+            node = node.next;
+        }
+
+        return temp;
+    }
+
+
 
 }
 
