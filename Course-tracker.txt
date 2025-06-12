@@ -37,10 +37,10 @@ Contents ⭐️
 07:20:10 detect a loop in a Singly Linked List-------------------------------
 07:36:58 find start of a loop in a Singly Linked List？-------------------------------
 07:49:43 implementing the code of start node in a loop -------------------------------
-07:57:54 Why Floyd's Cycle Detection algorithm works？
-08:17:23 remove loop from a Singly Linked List？
-08:37:36 Merge Two Sorted ListsQuestion
-09:21:54 LeetCode #2： Add Two Numbers
+07:57:54 Why Floyd's Cycle Detection algorithm works？-------------------------------
+08:17:23 remove loop from a Singly Linked List？-------------------------------
+08:37:36 Merge Two Sorted ListsQuestion-------------------------------
+09:21:54 LeetCode #2： Add Two Numbers-------------------------------
 09:41:53 represent a Doubly Linked List
 09:46:06 implement Doubly Linked List
 09:52:27 print elements of a Doubly Linked List

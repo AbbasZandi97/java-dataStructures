@@ -3,6 +3,14 @@ package SinglyLinkedList;
 public class SinglyLinkedList {
     Node head;
 
+    public Node getHead() {
+        return head;
+    }
+
+    public void setHead(Node head) {
+        this.head = head;
+    }
+
     public void insert(int data) {
         Node newNode = new Node(data);
         if (head == null) {
@@ -295,6 +303,9 @@ public class SinglyLinkedList {
             }
         }
 
+        System.out.println("No loops inside linked list.");
+        System.out.println("Returning null....");
+
         return null;
     }
 
@@ -303,6 +314,13 @@ public class SinglyLinkedList {
     the method parameter,node, is the node from previous method where slowPtr and fastPtr are equal(==).
      */
     public Node getStartingNode(Node node) {
+
+        if (node == null) {
+            System.out.println("Provided node is null.");
+            System.out.println("Returning null....");
+            return null;
+        }
+
         Node temp = head;
         while (temp != node) {
             temp = temp.next;
@@ -312,7 +330,59 @@ public class SinglyLinkedList {
         return temp;
     }
 
+    public void removeLoop(Node node) {
+        Node slowPointer = doesContainLoop(node);
+        // 'node' is expected to be the head of a possibly looped linked list.
+        if (slowPointer == null) {
+            System.out.println("Loop is either empty or does not have a loop to be removed.");
+            return;
+        }
 
+        // node is the temp or the head so we avoided to define a new variable.
+        while (slowPointer.next != node.next) {
+            slowPointer = slowPointer.next;
+            node = node.next;
+        }
+
+        System.out.println("There's no longer a loop inside the linked list.");
+        slowPointer.next = null;
+    }
+
+    // a, b are head nodes of two 'sorted' linked lists.
+    public Node merge(Node a, Node b) {
+
+        Node headOfMergedList ;
+        if (a.data <= b.data) {
+            headOfMergedList = a;
+            a = a.next;
+        } else {
+            headOfMergedList = b;
+            b = b.next;
+        }
+
+        Node current = headOfMergedList;
+
+        // here either of a or b becomes null sooner than the other one.
+        while (a != null && b != null) {
+            if (a.data <= b.data) {
+                current.next = a;
+                a = a.next;
+            } else {
+                current.next = b;
+                b = b.next;
+            }
+
+            current = current.next;
+        }
+
+        if (a == null) {
+            current.next = b;
+        } else {
+            current.next = a;
+        }
+
+        return headOfMergedList;
+    }
 
 }
 
